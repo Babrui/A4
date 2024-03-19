@@ -1,59 +1,58 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import '../style.css';
+     let todoItem = '';
+	let todoList = [];
+	
+	function addToArray() {
+		if (todoItem == '') {
+			return;
+		}
+
+		todoList = [...todoList, {
+			text: todoItem,
+			done: false
+		}];
+		todoList = todoList;
+		console.log(todoList);
+		todoItem = '';
+	}
+	function removeThis(index) {
+		todoList.splice(index, 1);
+		todoList = todoList;
+	}
+
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<h1>todoapp!</h1>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+<form on:submit|preventDefault={addToArray}>
+	<input type="text" bind:value={todoItem}>
+	<button type="submit">Add</button>
+</form>
 
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
+<ul>
+	{#each todoList as item, index}
+	     <li>
+			<input type="checkbox" bind:checked={item.done}>
+			<span class:done={item.done}>{item.text}</span>
+			<span on:click={() => removeThis(index)} class="remove" role="button" tabindex="0">&times;</span>
+		</li>
+	{/each}
+</ul>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
+	ul {
+		list-style: none;
 	}
-
-	h1 {
-		width: 100%;
+	li {
+		font-size: 1.3rem;
 	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	.done{
+		color: #999;
+		text-decoration: line-through;
 	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.remove{
+		color: darkred;
+		cursor: pointer;
 	}
 </style>
