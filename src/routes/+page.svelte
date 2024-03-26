@@ -1,29 +1,53 @@
 <script>
 	import '../style.css';
+	import {writable} from 'svelte/store';
      let todoItem = '';
-	let todoList = [];
+	let storedList;
+	//aljsfjvasdjhfa
+	let todoList = writable([]);
 	
+	if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+         storedList = localStorage.getItem('storedList');
+	    if(storedList) {
+		$todoList = (JSON.parse(storedList));
+	    }
+	}
+
+	function updateList() {
+		return storedList = localStorage.setItem('storedList', JSON.stringify($todoList));
+	}
+
+	//$: isDone = $todoList.filter(item => item.done);
+	//ajhsfhavsfhvsaldf
 	function addToArray() {
 		if (todoItem == '') {
 			return;
 		}
-
-		todoList = [...todoList, {
+		$todoList = [...$todoList, {
 			text: todoItem,
 			done: false
 		}];
-		todoList = todoList;
-		console.log(todoList);
+		//console.log(todoList);
+		updateList();
 		todoItem = '';
 	}
 	function removeThis(index) {
-		todoList.splice(index, 1);
-		todoList = todoList;
+		$todoList.splice(index, 1);
+		$todoList = $todoList;
+		updateList();
+	}
+	function clearDone (){
+
 	}
 
 </script>
 
-<h1>todoapp!</h1>
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app"/>
+</svelte:head>
+
+<h1>Task</h1>
 
 <form on:submit|preventDefault={addToArray}>
 	<input type="text" bind:value={todoItem}>
@@ -31,9 +55,10 @@
 </form>
 
 <ul>
-	{#each todoList as item, index}
+	{#each $todoList as item, index}
 	     <li>
-			<input type="checkbox" bind:checked={item.done}>
+			<input type="checkbox" bind:checked={item.done} on:change={updateList}>
+
 			<span class:done={item.done}>{item.text}</span>
 			<span on:click={() => removeThis(index)} class="remove" role="button" tabindex="0">&times;</span>
 		</li>
