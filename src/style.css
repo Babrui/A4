@@ -5,12 +5,15 @@ body {
      font-size: x-large;
      margin-top: 10%;
      color: #04AA6D;
+     background-image: url("art.jpg");
+     background-repeat: inherit;
 }
 img {
      border-radius: 8px;
 }
 input[type='text']{
      padding: 16px 32px;
+     font-size: large;
 }
 button {
      background-color: #04AA6D;

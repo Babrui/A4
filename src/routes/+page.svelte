@@ -70,7 +70,7 @@
 		list-style: none;
 	}
 	li {
-		font-size: 1.3rem;
+		font-size: 2rem;
 	}
 	.done{
 		color: #999;
