@@ -6,7 +6,6 @@ body {
      margin-top: 10%;
      color: #04AA6D;
      background-image: url("art.jpg");
-     background-repeat: inherit;
 }
 img {
      border-radius: 8px;
