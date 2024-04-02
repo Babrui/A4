@@ -4,12 +4,12 @@ body {
      font-size: x-large;
      margin-top: 10%;
      color: #04AA6D;
-     background-image: url("art.jpg");
+     background-image: url("%sveltekit.assets%/art.jpg");
      padding: 25px;
 }
 
 .dark-mode {
-  background-image: url("stars.jpg");
+  background-image: url("%sveltekit.assets%/stars.jpg");
   color: white;
 }
 img {
