@@ -11,11 +11,16 @@
 
 		<div style="display: contents">%sveltekit.body%</div>
 		<img src="%sveltekit.assets%/kitty.jpeg" alt="kitty">
-		<style>
-			body {
-			  background-image: url('%sveltekit.assets%/art.jpg');
+
+		<button onclick="myFunction()">Toggle dark mode</button> 
+		
+		<script>
+			function myFunction() {
+			   var element = document.body;
+			   element.classList.toggle("dark-mode");
 			}
-			</style>
+			</script>
+			
 	</body>
 	<footer>
 		<h1>Are You Done?</h1>

@@ -1,11 +1,16 @@
 body {
      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
      text-align: center;
-     background-color:azure;
      font-size: x-large;
      margin-top: 10%;
      color: #04AA6D;
      background-image: url("art.jpg");
+     padding: 25px;
+}
+
+.dark-mode {
+  background-image: url("stars.jpg");
+  color: white;
 }
 img {
      border-radius: 8px;
