@@ -46,7 +46,9 @@
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app"/>
 </svelte:head>
-
+<header>
+	<h1>Simple</h1>
+</header>
 <h1>Task</h1>
 
 <form on:submit|preventDefault={addToArray}>
