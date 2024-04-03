@@ -6,13 +6,12 @@
 		<link rel="manifest" href="%sveltekit.assets%/manifest.json">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+		<button onclick="myFunction()">Day/Night</button> 
 	</head>
 	<body data-sveltekit-preload-data="hover">
 
 		<div style="display: contents">%sveltekit.body%</div>
 		<img src="%sveltekit.assets%/kitty.jpeg" alt="kitty">
-
-		<button onclick="myFunction()">Toggle dark mode</button> 
 		
 		<script>
 			function myFunction() {
