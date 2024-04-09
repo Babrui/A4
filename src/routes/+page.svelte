@@ -1,6 +1,7 @@
 <script>
 	import '../style.css';
 	import {writable} from 'svelte/store';
+	import kitty from '$lib/images/kitty.jpeg'
      let todoItem = '';
 	let storedList;
 	let todoList = writable([]);
@@ -65,6 +66,8 @@
 		</li>
 	{/each}
 </ul>
+
+<img src={kitty} alt="kitty">
 
 <style>
 	ul {
