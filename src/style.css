@@ -4,11 +4,11 @@ body {
      font-size: x-large;
      margin-top: 10%;
      color: #04AA6D;
-     background-image: url("art.jpg");
+     background-image: url("lib/images/art.jpg");
 }
 
 .dark-mode {
-  background-image: url("stars.jpg");
+  background-image: url("lib/images/stars.jpg");
   color: white;
 }
 img {
