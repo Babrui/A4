@@ -3,7 +3,6 @@
 	import {writable} from 'svelte/store';
      let todoItem = '';
 	let storedList;
-	//aljsfjvasdjhfa
 	let todoList = writable([]);
 	
 	if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
