@@ -84,4 +84,5 @@
 		color: darkred;
 		cursor: pointer;
 	}
+	img{width: 40%;}
 </style>
